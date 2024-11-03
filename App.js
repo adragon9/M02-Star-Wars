@@ -13,14 +13,14 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      {Platform.OS === "ios" && (
+      {Platform.OS === "android" && (
         <Drawer.Navigator>
           <Drawer.Screen name="Spaceships" component={Spaceships} />
           <Drawer.Screen name="Films" component={Films} />
           <Drawer.Screen name="Planets" component={Planets} />
         </Drawer.Navigator>
       )}
-      {Platform.OS == "android" && (
+      {Platform.OS == "ios" && (
         <Tab.Navigator>
           <Tab.Screen name="Spaceships" component={Spaceships} />
           <Tab.Screen name="Films" component={Films} />
