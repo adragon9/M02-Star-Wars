@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {Text, View} from "react-native";
 
 function CallAPI(url) {
   const [items, setItems] = useState([]);
@@ -14,11 +15,11 @@ function CallAPI(url) {
     }, []);
 
     return (
-      <div>
+      <View>
         {items.map((item) => (
-          <p key={item.id}>{`○  ${item.name}`}</p>
+          <Text key={item.id}>{`○  ${item.name}`}</Text>
         ))}
-      </div>
+      </View>
     );
   }
 
@@ -32,11 +33,11 @@ function CallAPI(url) {
   }, []);
 
   return (
-    <div>
+    <View>
       {items.map((item) => (
-        <p key={item.id}>{`○  ${item.properties.title}`}</p>
+        <Text key={item.id}>{`○  ${item.properties.title}`}</Text>
       ))}
-    </div>
+    </View>
   );
 }
 
