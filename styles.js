@@ -25,4 +25,15 @@ export default StyleSheet.create({
         color: "darkslategray",
         fontWeight: "bold",
       },
+      Header_1: {
+        width: '40%',
+        textAlign: 'center',
+        fontSize: 24,
+        fontWeight: 'bold',
+        padding: 10,
+        backgroundColor: '#F4FDFF',
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 5,
+      }
 })
