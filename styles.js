@@ -27,13 +27,31 @@ export default StyleSheet.create({
       },
       Header_1: {
         width: '40%',
+        marginTop: '5%',
         textAlign: 'center',
         fontSize: 24,
         fontWeight: 'bold',
         padding: 10,
-        backgroundColor: '#F4FDFF',
+        backgroundColor: '#EFEAE1',
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 5,
+      },
+      ScrollView:{
+        flex: 1,
+        margin: 10,
+        maxHeight: '70%',
+        alignContent: 'center',
+        flexWrap: 'wrap',
+        backgroundColor: "#EFEAE1",
+        borderRadius: 5,
+        borderWidth:1,
+      },
+      listContent: {
+        marginVertical: 10,
+        marginHorizontal: 20,
+        padding: 5,
+        borderRadius: 5,
+        backgroundColor: '#FFF',
       }
 })

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import {Text, View} from "react-native";
+import { Text, View, ScrollView } from "react-native";
+import styles from "../styles";
 
 function CallAPI(url) {
   const [items, setItems] = useState([]);
@@ -15,11 +16,14 @@ function CallAPI(url) {
     }, []);
 
     return (
-      <View>
+      <ScrollView style={styles.ScrollView}>
         {items.map((item) => (
-          <Text key={item.id}>{`○  ${item.name}`}</Text>
+          <Text
+            style={styles.listContent}
+            key={item.id}
+          >{`○  ${item.name}`}</Text>
         ))}
-      </View>
+      </ScrollView>
     );
   }
 
@@ -33,11 +37,14 @@ function CallAPI(url) {
   }, []);
 
   return (
-    <View>
+    <ScrollView style={styles.ScrollView}>
       {items.map((item) => (
-        <Text key={item.id}>{`○  ${item.properties.title}`}</Text>
+        <Text
+          style={styles.listContent}
+          key={item.id}
+        >{`○  ${item.properties.title}`}</Text>
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
