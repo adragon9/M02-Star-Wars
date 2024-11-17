@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Text, View, ScrollView } from "react-native";
+import { Text, FlatList } from "react-native";
 import styles from "../styles";
-import { FlatList } from "react-native-web";
 
 function CallAPI(url) {
   const [data, setData] = useState([]);

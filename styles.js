@@ -1,8 +1,4 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
 import { Platform, StyleSheet, StatusBar } from "react-native";
-import { FlatList } from "react-native-web";
 
 export default StyleSheet.create({
   container: {
@@ -52,7 +48,7 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
   textInput:{
-    width: '100%',
+    width: 250,
     marginTop: 5,
     backgroundColor: '#FFF',
     borderRightWidth: 2,
@@ -70,7 +66,7 @@ export default StyleSheet.create({
     backgroundColor: "rgba(0,0,0,.5)",
   },
   modalContent: {
-    width: "20%",
+    width: 300,
     padding: 10,
     borderRadius: 5,
     backgroundColor: "white",
