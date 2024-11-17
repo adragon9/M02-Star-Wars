@@ -1,51 +1,70 @@
 import { useState, useEffect } from "react";
 import { Text, View, ScrollView } from "react-native";
 import styles from "../styles";
+import { FlatList } from "react-native-web";
 
 function CallAPI(url) {
-  const [items, setItems] = useState([]);
+  const [data, setData] = useState([]);
 
   if (url != "https://www.swapi.tech/api/films") {
-    const fetchItems = () => {
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => setItems(data.results));
-    };
     useEffect(() => {
-      fetchItems();
+      const dataCollection = async () => {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error("Failed to connect!");
+          }
+          const json = await response.json();
+          setData(json.results);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      dataCollection();
     }, []);
 
+    const renderItem = ({ item }) => (
+      <Text style={styles.boxText}>{`○  ${item.name}`}</Text>
+    );
+
     return (
-      <ScrollView style={styles.ScrollView}>
-        {items.map((item) => (
-          <Text
-            style={styles.listContent}
-            key={item.id}
-          >{`○  ${item.name}`}</Text>
-        ))}
-      </ScrollView>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.uid.toString()}
+        contentContainerStyle={styles.FlatList}
+      />
+    );
+  } else {
+    useEffect(() => {
+      const dataCollection = async () => {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error("Failed to connect!");
+          }
+          const json = await response.json();
+          setData(json.result);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      dataCollection();
+    }, []);
+
+    const renderItem = ({ item }) => (
+      <Text style={styles.boxText}>{`○  ${item.properties.title}`}</Text>
+    );
+
+    return (
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.uid.toString()}
+        contentContainerStyle={styles.flatList}
+      />
     );
   }
-
-  const fetchItems = () => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setItems(data.result));
-  };
-  useEffect(() => {
-    fetchItems();
-  }, []);
-
-  return (
-    <ScrollView style={styles.ScrollView}>
-      {items.map((item) => (
-        <Text
-          style={styles.listContent}
-          key={item.id}
-        >{`○  ${item.properties.title}`}</Text>
-      ))}
-    </ScrollView>
-  );
 }
 
 export default CallAPI;
