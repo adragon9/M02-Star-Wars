@@ -1,6 +1,7 @@
 import { Platform, StyleSheet, StatusBar } from "react-native";
 
 export default StyleSheet.create({
+  // Default styles
   container: {
     flex: 1,
     justifyContent: "center",
@@ -34,10 +35,12 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
   },
+  // List styles
   flatList: {
     flex: 1,
     alignItems: "center",
   },
+  // Search styles
   searchContainer: {
     marginVertical: 5,
     padding: 5,
@@ -59,6 +62,7 @@ export default StyleSheet.create({
   searchBox: {
     backgroundColor: "#FFF",
   },
+  // Modal styles
   modalContainer: {
     flex: 1,
     justifyContent: "center",
@@ -66,14 +70,19 @@ export default StyleSheet.create({
     backgroundColor: "rgba(0,0,0,.5)",
   },
   modalContent: {
-    width: 300,
+    maxWidthwidth: '60%',
     padding: 10,
     borderRadius: 5,
     backgroundColor: "white",
-    alignItems: "center",
   },
   modalText: {
+    textAlign: 'center',
     fontSize: 16,
     margin: 10,
+  },
+  modalDescription: {
+    textAlign: 'left',
+    marginVertical: 10,
+    fontSize: 14,
   },
 });

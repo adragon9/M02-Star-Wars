@@ -50,7 +50,7 @@ export default function CollectingTextInput() {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalText}>
+            <Text style={styles.modalDescription}>
               Submitted Text: {submittedText}
             </Text>
             <Button title="[x] close" onPress={() => setModalVisible(false)} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StatusBar } from "react-native";
+import { View, Text, StatusBar, ScrollView } from "react-native";
 import styles from "../styles";
 import CallAPI from "../components/api";
 import Input from "../components/searchBar";
@@ -10,7 +10,9 @@ export default function Spaceships({ navigation }) {
       <StatusBar barStyle="dark-content" />
       <Text style={styles.Header_1}>Spaceships Screen</Text>
       <Input />
-      {CallAPI("https://www.swapi.tech/api/starships")}
+      <ScrollView>
+        {CallAPI("https://www.swapi.tech/api/starships")}
+      </ScrollView>
     </View>
   );
 }
