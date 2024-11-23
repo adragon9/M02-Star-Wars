@@ -10,7 +10,9 @@ export default function Planets({ navigation }) {
       <StatusBar barStyle="dark-content" />
       <Text style={styles.Header_1}>Planets Screen</Text>
       <Input />
-      {CallAPI("https://www.swapi.tech/api/planets")}
+      <ScrollView>
+        {CallAPI("https://www.swapi.tech/api/planets")}
+      </ScrollView>
     </View>
   );
 }

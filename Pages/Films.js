@@ -10,7 +10,9 @@ export default function Films({ navigation }) {
       <StatusBar barStyle="dark-content" />
       <Text style={styles.Header_1}>Films Screen</Text>
       <Input />
-      {CallAPI("https://www.swapi.tech/api/films")}
+      <ScrollView>
+        {CallAPI("https://www.swapi.tech/api/films")}
+      </ScrollView>
     </View>
   );
 }

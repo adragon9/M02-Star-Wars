@@ -1,10 +1,7 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
 import { Platform, StyleSheet, StatusBar } from "react-native";
-import { FlatList } from "react-native-web";
 
 export default StyleSheet.create({
+  // Default styles
   container: {
     flex: 1,
     justifyContent: "center",
@@ -38,10 +35,12 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
   },
+  // List styles
   flatList: {
     flex: 1,
     alignItems: "center",
   },
+  // Search styles
   searchContainer: {
     marginVertical: 5,
     padding: 5,
@@ -52,7 +51,7 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
   textInput:{
-    width: '100%',
+    width: 250,
     marginTop: 5,
     backgroundColor: '#FFF',
     borderRightWidth: 2,
@@ -63,6 +62,7 @@ export default StyleSheet.create({
   searchBox: {
     backgroundColor: "#FFF",
   },
+  // Modal styles
   modalContainer: {
     flex: 1,
     justifyContent: "center",
@@ -70,14 +70,19 @@ export default StyleSheet.create({
     backgroundColor: "rgba(0,0,0,.5)",
   },
   modalContent: {
-    width: "20%",
+    maxWidthwidth: '60%',
     padding: 10,
     borderRadius: 5,
     backgroundColor: "white",
-    alignItems: "center",
   },
   modalText: {
+    textAlign: 'center',
     fontSize: 16,
     margin: 10,
+  },
+  modalDescription: {
+    textAlign: 'left',
+    marginVertical: 10,
+    fontSize: 14,
   },
 });

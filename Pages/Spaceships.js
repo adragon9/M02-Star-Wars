@@ -10,7 +10,9 @@ export default function Spaceships({ navigation }) {
       <StatusBar barStyle="dark-content" />
       <Text style={styles.Header_1}>Spaceships Screen</Text>
       <Input />
-      {CallAPI("https://www.swapi.tech/api/starships")}
+      <ScrollView>
+        {CallAPI("https://www.swapi.tech/api/starships")}
+      </ScrollView>
     </View>
   );
 }
