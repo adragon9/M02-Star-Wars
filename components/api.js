@@ -1,10 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Text, FlatList, View, Button, Modal } from "react-native";
-import {
-  Swipeable,
-  GestureHandlerRootView,
-} from "react-native-gesture-handler";
-import RightSwipe from "./rightSwipe";
+import Animated, { FadeIn } from "react-native-reanimated";
+import { Swipeable } from "react-native-gesture-handler";
 import styles from "../styles";
 
 function CallAPI(url) {
@@ -53,29 +50,32 @@ function CallAPI(url) {
     };
 
     const renderItem = ({ item, index }) => (
-      <Swipeable
-        ref={(ref) => (swipeRefs.current[index] = ref)}
-        renderRightActions={() => renderRightActions(item)}
-        onSwipeableOpen={() => {
-          setSelectedItem(item);
-          setModalVisible(true);
-          setCurrentSwipeRef(index);
-        }}
-        onSwipeableClose={closeCurrentSwipeable(currentSwipeRef)}
-      >
-        <View style={styles.itemContainer}>
-          <Text style={styles.boxText}>{`○  ${item.name}`}</Text>
-        </View>
-      </Swipeable>
+      <Animated.View style={styles.itemContainer} entering={FadeIn}>
+        <Swipeable
+          ref={(ref) => (swipeRefs.current[index] = ref)}
+          renderRightActions={() => renderRightActions(item)}
+          onSwipeableOpen={() => {
+            setSelectedItem(item);
+            setModalVisible(true);
+            setCurrentSwipeRef(index);
+          }}
+          onSwipeableClose={closeCurrentSwipeable(currentSwipeRef)}
+        >
+          <View style={styles.itemContainer}>
+            <Text style={styles.boxText}>{`○  ${item.name}`}</Text>
+          </View>
+        </Swipeable>
+      </Animated.View>
     );
 
     return (
-      <View>
+      <View style={styles.container}>
         <FlatList
           data={data}
           renderItem={renderItem}
           keyExtractor={(item) => item.uid.toString()}
           contentContainerStyle={styles.flatList}
+          an
         />
         <Modal
           animationType="slide"
@@ -133,20 +133,22 @@ function CallAPI(url) {
     };
 
     const renderItem = ({ item, index }) => (
-      <Swipeable
-        ref={(ref) => (swipeRefs.current[index] = ref)}
-        renderRightActions={() => renderRightActions(item)}
-        onSwipeableOpen={() => {
-          setSelectedItem(item);
-          setModalVisible(true);
-          setCurrentSwipeRef(index);
-        }}
-        onSwipeableClose={closeCurrentSwipeable(currentSwipeRef)}
-      >
-        <View style={styles.itemContainer}>
-          <Text style={styles.boxText}>{`○  ${item.properties.title}`}</Text>
-        </View>
-      </Swipeable>
+      <Animated.View style={styles.itemContainer} entering={FadeIn}>
+        <Swipeable
+          ref={(ref) => (swipeRefs.current[index] = ref)}
+          renderRightActions={() => renderRightActions(item)}
+          onSwipeableOpen={() => {
+            setSelectedItem(item);
+            setModalVisible(true);
+            setCurrentSwipeRef(index);
+          }}
+          onSwipeableClose={closeCurrentSwipeable(currentSwipeRef)}
+        >
+          <View style={styles.itemContainer}>
+            <Text style={styles.boxText}>{`○  ${item.properties.title}`}</Text>
+          </View>
+        </Swipeable>
+      </Animated.View>
     );
 
     return (
@@ -174,13 +176,19 @@ function CallAPI(url) {
                 {selectedItem ? "ID: " + selectedItem.uid : ""}
               </Text>
               <Text style={styles.modalDescription}>
-                {selectedItem ? "Director: " + selectedItem.properties.director : ""}
+                {selectedItem
+                  ? "Director: " + selectedItem.properties.director
+                  : ""}
               </Text>
               <Text style={styles.modalDescription}>
-                {selectedItem ? "Producer(s): " + selectedItem.properties.producer : ""}
+                {selectedItem
+                  ? "Producer(s): " + selectedItem.properties.producer
+                  : ""}
               </Text>
               <Text style={styles.modalDescription}>
-                {selectedItem ? "Release Date: " + selectedItem.properties.release_date : ""}
+                {selectedItem
+                  ? "Release Date: " + selectedItem.properties.release_date
+                  : ""}
               </Text>
               <Text style={styles.modalDescription}>
                 {selectedItem ? "URL: " + selectedItem.properties.url : ""}
