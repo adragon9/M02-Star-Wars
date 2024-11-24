@@ -95,9 +95,18 @@ export default StyleSheet.create({
   },
 
   //Image styles
-  img_placeholder: {},
+  img_placeholder: {
+    width: 10,
+    height: 10,
+  },
   image:{
     backgroundColor: "#FFF",
     borderRightWidth: 1,
   },
+
+  //Scroll View formatting
+  scroll_view: {
+    flex:1,
+    backgroundColor: 'ghostwhite',
+  }
 });
