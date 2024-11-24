@@ -3,8 +3,7 @@ import { Platform, StyleSheet, StatusBar } from "react-native";
 export default StyleSheet.create({
   // Default styles
   container: {
-    flex: 1,
-    justifyContent: "center",
+    flex:1,
     alignItems: "center",
     backgroundColor: "ghostwhite",
     ...Platform.select({
@@ -24,30 +23,39 @@ export default StyleSheet.create({
     borderRadius: 5,
   },
   Header_1: {
-    width: "40%",
-    marginTop: "5%",
+    width: 1001,
     textAlign: "center",
     fontSize: 24,
     fontWeight: "bold",
-    padding: 10,
-    backgroundColor: "#EFEAE1",
+    paddingVertical: 5,
+    backgroundColor: "#FFF",
+    borderBottomWidth: 2,
+    borderRightWidth: 1,
     borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 5,
   },
   // List styles
   flatList: {
-    flex: 1,
     alignItems: "center",
   },
   // Search styles
   searchContainer: {
     marginVertical: 5,
     padding: 5,
+    backgroundColor: 'darkseagreen',
+    borderRadius: 5,
+    shadowOpacity: .6,
+    shadowRadius: 3,
   },
   textInputLabel:{
     fontSize: 16,
+    width: '100%',
+    backgroundColor: 'green',
+    color: '#FFF',
     alignSelf: 'center',
+    textAlign: 'center',
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    borderRadius: 10,
     textDecorationLine: 'underline',
   },
   textInput:{
@@ -84,5 +92,12 @@ export default StyleSheet.create({
     textAlign: 'left',
     marginVertical: 10,
     fontSize: 14,
+  },
+
+  //Image styles
+  img_placeholder: {},
+  image:{
+    backgroundColor: "#FFF",
+    borderRightWidth: 1,
   },
 });
