@@ -5,7 +5,7 @@ import CallAPI from "../components/api";
 import Input from "../components/searchBar";
 import LazyImage from "../components/LazyImage";
 
-const img_src = "../assets/star-wars-posters.jpeg";
+const img_src = require("../assets/star-wars-posters.jpeg");
 
 export default function Films({ navigation }) {
   return (
@@ -15,7 +15,7 @@ export default function Films({ navigation }) {
         <LazyImage
           style={{ width: 1000, height: 100 }}
           resizeMode="cover"
-          source={require(img_src)}
+          source={img_src}
         />
         <Text style={styles.Header_1}>Films Screen</Text>
         <Input />

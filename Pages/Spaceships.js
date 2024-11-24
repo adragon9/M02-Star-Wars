@@ -5,7 +5,7 @@ import CallAPI from "../components/api";
 import Input from "../components/searchBar";
 import LazyImage from "../components/LazyImage";
 
-const img_src = "../assets/star-wars-ships.jpg";
+const img_src = require("../assets/star-wars-ships.jpg");
 
 export default function Spaceships({ navigation }) {
   return (
@@ -15,7 +15,7 @@ export default function Spaceships({ navigation }) {
         <LazyImage
           style={{ width: 1000, height: 100 }}
           resizeMode="cover"
-          source={require(img_src)}
+          source={img_src}
         />
         <Text style={styles.Header_1}>Spaceships Screen</Text>
         <Input />

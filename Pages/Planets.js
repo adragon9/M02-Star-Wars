@@ -5,7 +5,7 @@ import CallAPI from "../components/api";
 import Input from "../components/searchBar";
 import LazyImage from "../components/LazyImage";
 
-const img_src = "../assets/star-wars-planets.png";
+const img_src = require("../assets/star-wars-planets.png");
 
 export default function Planets({ navigation }) {
   return (
@@ -15,7 +15,7 @@ export default function Planets({ navigation }) {
         <LazyImage
           style={{ width: 1000, height: 100 }}
           resizeMode="cover"
-          source={require(img_src)}
+          source={img_src}
         />
         <Text style={styles.Header_1}>Planets Screen</Text>
         <Input />
