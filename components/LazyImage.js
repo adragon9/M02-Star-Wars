@@ -5,6 +5,7 @@ import styles from "../styles";
 
 const placeholder = require("../assets/icon.png");
 
+
 function Placeholder(props) {
   if (props.loaded) {
     return null;
@@ -18,10 +19,11 @@ export default function LazyImage(props) {
 
   return (
     <View style={styles.image}>
-      <Placeholder loaded={loaded} {...props} />
+      <Placeholder loaded={loaded} />
       <Image
         {...props}
         onLoad={() => {
+          console.log("Image loaded");
           setLoaded(true);
         }}
       />
@@ -30,6 +32,12 @@ export default function LazyImage(props) {
 }
 
 LazyImage.propTypes = {
+  source: PropTypes.oneOfType([
+    PropTypes.shape({
+      uri: PropTypes.string.isRequired,
+    }),
+    PropTypes.number, // For local images
+  ]).isRequired,
   style: PropTypes.shape({
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,

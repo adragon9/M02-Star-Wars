@@ -15,7 +15,7 @@ export default function Spaceships({ navigation }) {
         <LazyImage
           style={{ width: 1000, height: 100 }}
           resizeMode="cover"
-          source={img_src}
+          source={require(img_src)}
         />
         <Text style={styles.Header_1}>Spaceships Screen</Text>
         <Input />
