@@ -4,7 +4,7 @@ import Animated, { FadeIn } from "react-native-reanimated";
 import { Swipeable } from "react-native-gesture-handler";
 import styles from "../styles";
 
-function CallAPI(url) {
+function CallAPI({ url }) {
   const [data, setData] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -39,7 +39,7 @@ function CallAPI(url) {
         }
       };
       dataCollection();
-    }, []);
+    }, [url]);
 
     const renderRightActions = () => {
       return (
@@ -122,7 +122,7 @@ function CallAPI(url) {
         }
       };
       dataCollection();
-    }, []);
+    }, [url]);
 
     const renderRightActions = () => {
       return (
