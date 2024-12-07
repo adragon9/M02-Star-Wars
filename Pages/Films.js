@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, StatusBar, ScrollView } from "react-native";
 import styles from "../styles";
 import CallAPI from "../components/api";
-import Input from "../components/searchBar";
 import LazyImage from "../components/LazyImage";
 import ConnectionEnforcer from "../components/ConnectionEnforcement";
 
@@ -20,8 +19,7 @@ export default function Films({ navigation }) {
           source={img_src}
         />
         <Text style={styles.Header_1}>Films Screen</Text>
-        <Input />
-        <CallAPI url="https://www.swapi.tech/api/films" />
+        <CallAPI url="https://www.swapi.tech/api/films" name="Films"/>
       </View>
     </ScrollView>
   );

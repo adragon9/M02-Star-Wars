@@ -20,8 +20,7 @@ export default function Planets({ navigation }) {
           source={img_src}
         />
         <Text style={styles.Header_1}>Planets Screen</Text>
-        <Input />
-        <CallAPI url="https://www.swapi.tech/api/planets" />
+        <CallAPI url="https://www.swapi.tech/api/planets" name="Planets"/>
       </View>
     </ScrollView>
   );

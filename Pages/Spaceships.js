@@ -20,8 +20,7 @@ export default function Spaceships({ navigation }) {
           source={img_src}
         />
         <Text style={styles.Header_1}>Spaceships Screen</Text>
-        <Input />
-        <CallAPI url="https://www.swapi.tech/api/starships" />
+        <CallAPI url="https://www.swapi.tech/api/starships" name="Spaceships"/>
       </View>
     </ScrollView>
   );
